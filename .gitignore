@@ -9,3 +9,4 @@ logs
 src/.DS_Store
 buildMeta.json
 test.sqlite
+stats.json

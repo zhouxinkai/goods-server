@@ -14,7 +14,8 @@
     "build": "cross-env NODE_ENV=production node scripts/build",
     "lint.client": "tslint -p src/client/tsconfig.json -e *.d.ts -c tslint.json",
     "lint.server": "tslint -p src/server/tsconfig.json -e *.d.ts -c tslint.json",
-    "lint.fix": "prettier --write \"./**/*.{js,tsx,ts}\""
+    "lint.fix": "prettier --write \"./**/*.{js,tsx,ts}\"",
+    "analyz": "NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "pre-commit": [
     "lint.client",
@@ -117,6 +118,7 @@
     "uuid": "^3.2.1",
     "webp-converter": "^2.1.6",
     "webpack": "3.10.0",
+    "webpack-bundle-analyzer": "^3.0.2",
     "webpack-merge": "^4.1.1"
   }
 }

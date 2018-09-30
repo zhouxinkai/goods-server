@@ -7,6 +7,7 @@ const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const webpackConfig = merge(baseWebpackConfig, {
   output: {
@@ -18,6 +19,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     app: [path.resolve(root, './src/client/main.tsx')],
   },
   plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+    }),
     new UglifyJsPlugin({
       cache: true,
       parallel: true,
@@ -34,7 +38,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       },
-    }),
+    })
   ],
 });
 
